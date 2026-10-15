@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube GIF Comments (Edge)",
+  "version": "1.2.0",
+  "description": "Add a GIF button (Giphy) to YouTube comments and see GIFs inline in comments.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.giphy.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "action": { "default_title": "YouTube GIF Comments settings" }
+}
